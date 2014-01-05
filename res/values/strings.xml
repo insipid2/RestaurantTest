@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Random Restaurant Picker</string>
+    <string name="troll_meme">Use your force, Harry - Gandalf</string>
+    <string name="startButton">Pick the Restaurant!</string>
+    <string name="RadioButton1">Cheap Option</string>
+    <string name="RadioButton2">Normal Option</string>
+    <string name="RadioButton3">Expensive Option</string>
+</resources>
