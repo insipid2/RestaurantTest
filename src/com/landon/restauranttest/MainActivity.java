@@ -17,7 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
-    // private static final String TAG = "LANDON";
+    // private static final String TAG = "RESTAURANT_TEST";
 
     private int checkedRadioButtonId;
     private TextView memeText;
@@ -35,6 +35,7 @@ public class MainActivity extends Activity {
         init();
     }
 
+    // Initiate TextView, RadioButtons, and Button
     private void init() {
         memeText = (TextView) findViewById(R.id.troll_meme_text);
         memeText.setTextColor(Color.WHITE);
@@ -72,9 +73,9 @@ public class MainActivity extends Activity {
         });    	
     }
 
-    private void createRestaurant() {
+    /* private void createRestaurant() {
         Restaurant kungHo = new Restaurant("Kung Ho", PriceRange.NORMAL);
-    }
+    } */
 
     private void pickRestaurant(int checkedRadioButtonId) {
         Random r = new Random();
