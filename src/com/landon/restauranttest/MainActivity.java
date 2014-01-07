@@ -63,6 +63,8 @@ public class MainActivity extends Activity {
             }
         });
 
+        createRestaurant();
+
         Button button = (Button) findViewById(R.id.start);
 
         button.setOnClickListener(new OnClickListener() {
@@ -73,9 +75,25 @@ public class MainActivity extends Activity {
         });    	
     }
 
-    /* private void createRestaurant() {
-        Restaurant kungHo = new Restaurant("Kung Ho", PriceRange.NORMAL);
-    } */
+    private void createRestaurant() {
+        Restaurant pizzaHut = new Restaurant("Pizza Hut", PriceRange.CHEAP);
+        Restaurant gyros = new Restaurant("Gyros", PriceRange.CHEAP);
+        Restaurant sisters = new Restaurant("Sister's", PriceRange.CHEAP);
+
+        Restaurant southGate = new Restaurant("South Gate", PriceRange.NORMAL);
+        Restaurant mexican = new Restaurant("Mexican", PriceRange.NORMAL);
+        Restaurant tmo = new Restaurant("Teriyaki And More", PriceRange.NORMAL);
+        Restaurant taj = new Restaurant("Taj", PriceRange.NORMAL);
+        Restaurant kungho = new Restaurant("Kungho", PriceRange.NORMAL);
+        Restaurant thai = new Restaurant("Tasty Thai", PriceRange.NORMAL);
+        Restaurant pho = new Restaurant("I Love Pho", PriceRange.NORMAL);
+
+        Restaurant sushi = new Restaurant("Genki Sushi", PriceRange.EXPENSIVE);
+    }
+
+    /*private void createResArray() {
+    	
+    }*/
 
     private void pickRestaurant(int checkedRadioButtonId) {
         Random r = new Random();
