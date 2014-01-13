@@ -23,3 +23,6 @@ local.properties
 .reviewboardrc
 default.properties
 project.properties
+
+# Vim
+*.swp

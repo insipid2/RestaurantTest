@@ -10,10 +10,10 @@ public class Restaurant {
     }
 
     protected String getName() {
-    	return name;
+        return name;
     }
-    
+
     protected PriceRange getPriceRange() {
-    	return priceRange;
+        return priceRange;
     }
 }

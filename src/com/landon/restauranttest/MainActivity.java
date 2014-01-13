@@ -72,7 +72,7 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 pickRestaurant(checkedRadioButtonId);
             }
-        });    	
+        });
     }
 
     private void createRestaurant() {
@@ -92,12 +92,12 @@ public class MainActivity extends Activity {
     }
 
     /*private void createResArray() {
-    	
+
     }*/
 
     private void pickRestaurant(int checkedRadioButtonId) {
         Random r = new Random();
-        int randomNumber = -1;		
+        int randomNumber = -1;
 
         SparseArray<String> array = new SparseArray<String>();
 
@@ -130,7 +130,7 @@ public class MainActivity extends Activity {
         Toast toast = null;
         if (randomNumber < 0) {
             toast = Toast.makeText(mContext, "Please choose one of the options.",
-            		Toast.LENGTH_SHORT);
+                    Toast.LENGTH_SHORT);
         } else {
             toast = Toast.makeText(mContext, "We're going to "
                     + array.get(randomNumber) + " today!", Toast.LENGTH_LONG);
