@@ -25,6 +25,9 @@ public class MainActivity extends Activity {
     private RadioButton rdBtn2;
     private RadioButton rdBtn3;
     private Context mContext;
+    
+    private static SparseArray<Restaurant> resArray;
+    private static int resCount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +66,7 @@ public class MainActivity extends Activity {
             }
         });
 
-        createRestaurant();
+        createResArray();
 
         Button button = (Button) findViewById(R.id.start);
 
@@ -75,7 +78,7 @@ public class MainActivity extends Activity {
         });
     }
 
-    private void createRestaurant() {
+    private void createResArray() {
         Restaurant pizzaHut = new Restaurant("Pizza Hut", PriceRange.CHEAP);
         Restaurant gyros = new Restaurant("Gyros", PriceRange.CHEAP);
         Restaurant sisters = new Restaurant("Sister's", PriceRange.CHEAP);
@@ -89,31 +92,29 @@ public class MainActivity extends Activity {
         Restaurant pho = new Restaurant("I Love Pho", PriceRange.NORMAL);
 
         Restaurant sushi = new Restaurant("Genki Sushi", PriceRange.EXPENSIVE);
+        
+        resArray = new SparseArray<Restaurant>();
+        
+        resArray.append(0, pizzaHut);
+        resArray.append(1, gyros);
+        resArray.append(2, sisters);
+        
+        resArray.append(3, southGate);
+        resArray.append(4, mexican);
+        resArray.append(5, tmo);
+        resArray.append(6, taj);
+        resArray.append(7, kungho);
+        resArray.append(8, thai);
+        resArray.append(9, pho);
+        
+        resArray.append(10, sushi);
+        
+        resCount = 11;
     }
-
-    /*private void createResArray() {
-
-    }*/
 
     private void pickRestaurant(int checkedRadioButtonId) {
         Random r = new Random();
         int randomNumber = -1;
-
-        SparseArray<String> array = new SparseArray<String>();
-
-        array.append(0, "Pizza Hut");
-        array.append(1, "Gyros");
-        array.append(2, "Sisters");
-
-        array.append(3, "South Gate");
-        array.append(4, "Mexican");
-        array.append(5, "TMO");
-        array.append(6, "Taj");
-        array.append(7, "Kungho");
-        array.append(8, "Thai");
-        array.append(9, "Pho");
-
-        array.append(10, "Sushi");
 
         switch (checkedRadioButtonId) {
         case R.id.cheap_option:
@@ -133,7 +134,7 @@ public class MainActivity extends Activity {
                     Toast.LENGTH_SHORT);
         } else {
             toast = Toast.makeText(mContext, "We're going to "
-                    + array.get(randomNumber) + " today!", Toast.LENGTH_LONG);
+                    + resArray.get(randomNumber) + " today!", Toast.LENGTH_LONG);
         }
         toast.setGravity(Gravity.CENTER, 0, 0);
         toast.show();
