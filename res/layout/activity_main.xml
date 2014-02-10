@@ -9,22 +9,22 @@
     tools:context=".MainActivity" >
 
     <Button
-        android:id="@+id/start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:textColor="#FFFFFF"
-        android:text="@string/startButton" />
+    	android:id="@+id/pickRes"
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:layout_alignParentBottom="true"
+    	android:layout_alignParentLeft="true"
+    	android:layout_alignParentRight="true"
+    	android:text="@string/pickRes"
+    	android:textColor="#FFFFFF" />
 
     <TextView
     	android:id="@+id/troll_meme_text"
     	android:layout_width="wrap_content"
     	android:layout_height="wrap_content"
-    	android:layout_above="@+id/start"
+    	android:layout_above="@+id/pickRes"
     	android:layout_alignParentLeft="true"
-    	android:layout_alignRight="@+id/start"
+    	android:layout_alignRight="@+id/pickRes"
     	android:text="@string/troll_meme" />
 
     <RadioGroup
@@ -54,5 +54,14 @@
     		android:layout_height="wrap_content"
     		android:text="@string/RadioButton3" />
     </RadioGroup>
+
+    <Button
+    	android:id="@+id/addRes"
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:layout_alignLeft="@+id/radioGroup"
+    	android:layout_alignParentTop="true"
+    	android:layout_marginTop="30dp"
+    	android:text="@string/addRes" />
 
 </RelativeLayout>

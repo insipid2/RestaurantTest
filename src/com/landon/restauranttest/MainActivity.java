@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.SparseArray;
 import android.view.Gravity;
 import android.view.View;
@@ -17,7 +18,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
-    // private static final String TAG = "RESTAURANT_TEST";
+    private static final String TAG = "LANDON_" + MainActivity.class.getSimpleName();
+    public static final boolean DEBUG = true;
 
     private int checkedRadioButtonId;
     private TextView memeText;
@@ -25,9 +27,10 @@ public class MainActivity extends Activity {
     private RadioButton rdBtn2;
     private RadioButton rdBtn3;
     private Context mContext;
-    
+
+    // TODO: use content provider to store restaurants
     private static SparseArray<Restaurant> resArray;
-    private static int resCount = 0;
+    public static int resCount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +71,7 @@ public class MainActivity extends Activity {
 
         createResArray();
 
-        Button button = (Button) findViewById(R.id.start);
+        Button button = (Button) findViewById(R.id.pickRes);
 
         button.setOnClickListener(new OnClickListener() {
             @Override
@@ -92,13 +95,13 @@ public class MainActivity extends Activity {
         Restaurant pho = new Restaurant("I Love Pho", PriceRange.NORMAL);
 
         Restaurant sushi = new Restaurant("Genki Sushi", PriceRange.EXPENSIVE);
-        
+
         resArray = new SparseArray<Restaurant>();
-        
+
         resArray.append(0, pizzaHut);
         resArray.append(1, gyros);
         resArray.append(2, sisters);
-        
+
         resArray.append(3, southGate);
         resArray.append(4, mexican);
         resArray.append(5, tmo);
@@ -106,11 +109,21 @@ public class MainActivity extends Activity {
         resArray.append(7, kungho);
         resArray.append(8, thai);
         resArray.append(9, pho);
-        
+
         resArray.append(10, sushi);
-        
+
         resCount = 11;
+        
+        if (DEBUG) Log.i(TAG, "Default restaurant list created. Count is: " + resCount);
     }
+
+    // TODO: introduce AddRestaurant Activity to let users add new restaurants
+    private void addRestaurant(String name, PriceRange price) {
+        resArray.append(resCount, new Restaurant(name, price));
+        resCount++;
+        if (DEBUG) Log.i(TAG, "Added a restaurant " + name + " with price " + price.toString());
+    }
+
 
     private void pickRestaurant(int checkedRadioButtonId) {
         Random r = new Random();
@@ -127,6 +140,8 @@ public class MainActivity extends Activity {
             randomNumber = 10;
             break;
         }
+
+        if (DEBUG) Log.i(TAG, "Random number to pick restaurant is: " + randomNumber);
 
         Toast toast = null;
         if (randomNumber < 0) {
